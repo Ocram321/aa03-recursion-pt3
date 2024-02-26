@@ -14,6 +14,20 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 
 function flatten(arr) {
   // Your code here 
+  let newArr = []
+  if (arr.length === 0) {
+    return []
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!Array.isArray(arr[i])) {
+      newArr.push(arr[i]);
+    } else {
+      newArr.push(...flatten(arr[i]))
+    }
+  }
+  return newArr
+
 }
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
